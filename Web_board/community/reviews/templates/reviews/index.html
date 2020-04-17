@@ -1,9 +1,28 @@
 {% extends 'base.html' %}
 {% block body %}
-<h1>index page</h1>
-
-{% for review in reviews %}
-
-{% endfor %}
+<h3>Review Board</h3>
+<a href="#">NEW</a>
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">User</th>
+        <th scope="col">Title</th>
+        <th scope="col">Update</th>
+        <th scope="col">Detail</th>
+      </tr>
+    </thead>
+    <tbody>
+    {% for review in reviews %}
+      <tr>
+        <th scope="row">{{forloop.counter}}</th>
+        <td>request.uesr.username</td>
+        <td>review.title</td>
+        <td>review.updated_at</td>
+        <td><a href="#">Go detail</a></td>
+      </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 
 {% endblock %}
