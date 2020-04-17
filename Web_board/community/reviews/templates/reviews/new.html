@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block body %}
+<h3> Write New Review</h3>
+<form action="{% url 'reviews:create' %}">
+    Title : <input type="text" name="title"></input>
+    <hr/>
+    Content: <textarea name ="content"></textarea>
+    <hr/>
+    Rank : <input type="text" name="rank"></input>
+    <hr/>
+    <button>Submit</button>
+</form>
+{% endblock %}
