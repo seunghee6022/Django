@@ -7,3 +7,4 @@ class Review(models.Model):
     rank = models.IntegerField()
     created_at = models.DateTimeField(auto_now=True)
     updated_at = models.DateTimeField(auto_now_add=True)
+    
