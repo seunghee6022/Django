@@ -4,6 +4,7 @@
 
 {% block body %}
 <h3> Write New Review</h3>
+<a href="{% url 'reviews:index' %}">BACK</a>
 <!-- action에 아무것도 안넣으면 자기 자신으로 간다 -->
 <form action="" method="POST">
     {% csrf_token %}

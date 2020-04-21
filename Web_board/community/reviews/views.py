@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect,get_object_or_404
 from .models import Review
 from .forms import ReviewForm
+from django.views.decorators.http import require_POST
 
 # Create your views here.
 def index(request):
@@ -23,5 +24,12 @@ def create(request):
     }
     return render(request, 'reviews/form.html',context)
 
+
+def detail(request, review_pk):
+    review = get_object_or_404(Review, pk=review_pk)
+    context = {
+        'review' : review
+    }
+    return render(request, 'reviews/detail.html', context)
 
         

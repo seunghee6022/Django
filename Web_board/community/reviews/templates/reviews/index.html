@@ -21,7 +21,7 @@
         <td>{{review.title}}</td>
         <td>{{review.rank}}</td>
         <td>{{review.updated_at}}</td>
-        <td><a href="#">Go detail</a></td>
+        <td><a href="{% url 'reviews:detail' review.pk %}">Go detail</a></td>
       </tr>
       {% endfor %}
     </tbody>

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+<!-- {% load bootstrap4 %} -->
+
+{% block body %}
+<h3>{{review.pk}}님의 게시글</h3>
+<hr/>
+<h4>Title : {{review.title}}</h4>
+<p>Content : {{review.content}}</p>
+<p>Rank : {{review.rank}}</p>
+<p>작성일자 : {{review.created_at}}</p>
+<p>수정일자 : {{review.updated_at}}</p>
+<hr>
+<h5>댓글 작성</h5>
+
+{% endblock %}
