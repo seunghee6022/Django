@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect,get_object_or_404
 from .models import Review
 from .forms import ReviewForm
 from django.views.decorators.http import require_POST
+from django.contrib.auth.form import UserCreationForm
 
 # Create your views here.
 def index(request):
@@ -53,4 +54,4 @@ def delete(request, review_pk):
     review = get_object_or_404(Review, pk=review_pk)
     review.delete()
     return redirect('reviews:index')
-    
+
