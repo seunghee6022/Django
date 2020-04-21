@@ -1,5 +1,6 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect,get_object_or_404
 from .models import Review
+from .forms import ReviewForm
 
 # Create your views here.
 def index(request):
@@ -9,17 +10,18 @@ def index(request):
     }
     return render(request,'reviews/index.html',context)
 
-def new(request):
-    return render(request, 'reviews/new.html')
-
-
 def create(request):
-    review = Review()
-    review.title = request.GET.get('title')
-    review.content = request.GET.get('content')
-    review.rank = request.GET.get('rank')
-    review.save()
-    return redirect('reviews:index')
+    if request.method == "POST":
+        form = ReviewForm(request.POST)
+        if form.is_valid():
+            review = form.save()
+            return redirect('reviews:index')
+    else :
+        form = ReviewForm()
+    context = {
+        'form' : form
+    }
+    return render(request, 'reviews/form.html',context)
 
 
         
