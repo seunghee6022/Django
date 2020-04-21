@@ -13,10 +13,10 @@
 <hr>
 
 <a href="{% url 'reviews:update' review.pk %}">수정하기</a>
-<!-- <form action="{% url 'reviews:update' review.pk %}" method="POST">
+<form action="{% url 'reviews:delete' review.pk %}" method="POST">
     {% csrf_token %}
-    <button>수정</button>
-</form> -->
+    <button>삭제</button>
+</form>
 
 <!-- <h5>댓글 작성</h5> -->
 

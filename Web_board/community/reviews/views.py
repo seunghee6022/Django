@@ -47,3 +47,10 @@ def update(request, review_pk):
         'form' : form
     }
     return render(request, 'reviews/form.html', context)
+
+@require_POST
+def delete(request, review_pk):
+    review = get_object_or_404(Review, pk=review_pk)
+    review.delete()
+    return redirect('reviews:index')
+    
