@@ -1,6 +1,9 @@
 {% extends 'base.html' %}
+{% load boostrap4 %}
+
 {% block body %}
 <h3> Write New Review</h3>
+{% bootstrap_form form %}
 <form action="{% url 'reviews:create' %}">
     Title : <input type="text" name="title"></input>
     <hr/>
