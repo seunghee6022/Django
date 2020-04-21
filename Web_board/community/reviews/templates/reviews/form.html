@@ -3,10 +3,20 @@
 {% load bootstrap4 %}
 
 {% block body %}
-<h3> Write New Review</h3>
+
+{% if request.resolver_match.url_name == 'create' %}
+<h3> 새 글쓰기 </h3>
 <a href="{% url 'reviews:index' %}">BACK</a>
-<!-- action에 아무것도 안넣으면 자기 자신으로 간다 -->
 <form action="" method="POST">
+    
+{% else %}
+<h3> 수정하기 </h3>
+<a href="{% url 'reviews:index' %}">BACK</a>
+<form action="{% url 'reviews:update' review.pk %}" method="POST">
+   
+{% endif %}
+
+<!-- action에 아무것도 안넣으면 자기 자신으로 간다 -->
     {% csrf_token %}
     {% bootstrap_form form %}
     <button>SUBMIT</button>
