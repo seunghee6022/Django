@@ -38,7 +38,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'reviews',
-    'bootstrap4'
+    'accounts',
+    'bootstrap4',
 ]
 
 MIDDLEWARE = [
