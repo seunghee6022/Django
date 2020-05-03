@@ -290,7 +290,7 @@ User.objects.filter(age__gte=30).count()
 
 ```sql
 #sql
-SELECT COUNT (*) FROM
+SELECT COUNT (*) FROM users_user
 WHERE age >= 30;
 
 COUNT(*)
@@ -314,7 +314,7 @@ print(User.objects.filter(age=30, last_name='김').query)
 
 ```
 #sql
-SELECT COUNT (*) FROM
+SELECT COUNT (*) FROM users_user
 WHERE age =30 AND last_name = '김';
 ```
 
@@ -401,19 +401,6 @@ User.objects.order_by('balance')[:10]
 #sql
 SELECT * FROM users_user
 ORDER BY balance ASC
-LIMIT 10;
-```
-
-* 나이가 많은 사람 10명
-
-```python
-#orm
-```
-
-```sql
-#sql
-SELECT * FROM users_user
-ORDER BY age DESC
 LIMIT 10;
 ```
 
@@ -578,7 +565,7 @@ for user in users:
 ```sql
 #sql
 UPDATE users_user SET country ='경기도'
-WHERE first_name='옥자' AND last
+WHERE first_name='옥자' AND last_name='김';
 ```
 
 
@@ -588,7 +575,14 @@ WHERE first_name='옥자' AND last
 * 이름이 ‘백진호’인 사람을 삭제하시오.
 
 ```python
+#orm
 User.objects.filter(first_name='진호',last_name='백').delete()
+```
+
+```sql
+#sql
+DELETE FROM users_user
+WHERE last_name='백' AND first_name='진호'; ???????????????
 ```
 
 
@@ -600,7 +594,9 @@ User.objects.filter(first_name='진호',last_name='백').delete()
 > 중복 없이 : `distinct()`
 
 ```python
+#orm
 User.objects.filter(phone__startswith='010').values('country').distinct()
+
 ```
 
 
