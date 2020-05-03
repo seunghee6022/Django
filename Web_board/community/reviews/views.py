@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect,get_object_or_404
 from .models import Review
 from .forms import ReviewForm
 from django.views.decorators.http import require_POST
-from django.contrib.auth.form import UserCreationForm
+from django.contrib.auth.forms import UserCreationForm
 
 # Create your views here.
 def index(request):
