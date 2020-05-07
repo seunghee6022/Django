@@ -17,9 +17,11 @@
 
   * DDL(Data Definition Language) - `CREATE`, `ALTER`, `DROP`
 
-  * DML(Data Manipulation Language) - `INSERT`,`SELECT`,`UPDATE`,`DELETE`
-* DCL(Data Control Language) - `BEGIN`,`COMMIT`
   
+
+  * DML(Data Manipulation Language) - `INSERT`,`SELECT`,`UPDATE`,`DELETE`
+  * DCL(Data Control Language) - `BEGIN`,`COMMIT`
+
 * 키워드 사용법 (0421 Exersize 참고)
 
   * 나이가 30살 이상인 사람의 인원 수
@@ -211,8 +213,8 @@
   #orm
   User.objects.filter(phone__startswith='010').values('country').distinct()
   #sql
-  SELECT DISTINCT country FROM users_user
-  WHERE phone LIKE '010%'; 
+  SELECT country FROM users_user
+  WHERE phone='010-%'; ??????distinct어떻게 하지???????
   ```
 
   ---
@@ -257,7 +259,7 @@ from .models import Article,Comment
 class ArticleForm(forms.ModelForm):
     class Meta:
         model = Article
-        fields = ['title','content']
+        fields = '__all__'
 
 class CommentForm(forms.ModelForm):
     class Meta:
@@ -293,30 +295,6 @@ CREATE TABLE "users_user" (
 ---
 
 #### ORM
-
-0. N:M 접근 방식(중요)
-
-```python
-# article = Article.objects.get(?)으로 특정 게시물을 가져온 상태에서 가정
-
-article.user : 게시글을 작성한 유저
-article.like_users.all(): 게시글을 좋아요 누른 유저들(직접 참조)
-user.article_set.all() : 유저가 작성한 게시글들(역참조)
-user.like_articles.all() : 유저가 좋아요 누른 게시글들(related_name으로 역참조.)
-------------------------- 수업 Quiz -----------------------------
-* 로그인 한 유저가 작성한 모든 게시글 목록 정보
-1.Article.objects.filter(user = request.user)
-#로그인한 유저
-2.user = request.user
-user.article_set.all()
-
-* 로그인한 유저가 누른 좋아요 게시글 목록 정보
-user.likes_articles.all()
-# related_name이 없을 때
-user.??????????
-```
-
-
 
 1. 좋아요
 
