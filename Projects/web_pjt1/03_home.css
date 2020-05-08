@@ -1,0 +1,72 @@
+/* 03_home.css */
+/* 아래에 코드를 작성해 주세요. */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+Header {
+    margin: 80px 0 0 0;
+    height: 500px;
+    background-image: url('images/header.jpg');
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+button {
+    border: none;
+    padding: 1rem;
+    color: white;
+    border-radius: 15px;
+    margin: 25px;
+    font-size: 16px;
+    background-color: blue;
+}
+
+.cover_list {
+    list-style: none;
+    vertical-align: middle;
+    color: white;
+    text-align: center;
+    margin: 0;
+}
+
+.tb {
+    
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+.skills {
+
+}
+.skill {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.us {
+    margin: 3rem;
+    font: 3rem arial;
+    text-align : center;
+}
+
+.small {
+    color : black;
+}
+
+.sec {
+    margin: 3rem 0 100px 0;
+}
+.cover > li {
+    font: 5rem arial;
+    font-family: "Courier New", Courier, monospace;
+    margin: 25px;
+    text-align: center;
+    font-weight: bold;
+}

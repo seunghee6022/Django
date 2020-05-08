@@ -1,0 +1,46 @@
+/* 01_nav.css */
+/* 아래에 코드를 작성해 주세요. */
+body {
+    margin: 0;
+    padding: 0;
+}
+nav {
+    position : fixed;
+    left: 0;
+    right: 0;
+    top: 0;
+    background-color : black;
+    height: 80px;
+
+}
+.nav_items {
+    float: right;
+    list-style: none;
+    margin: 0;
+    padding: 0 1rem 0 0;
+
+
+}
+.nav_item {
+    display: inline;
+    text-size : small;
+}
+
+.nav_item > a {
+    color : darkgray;
+    text-decoration: none;
+    padding : 1rem;
+    line-height: 80px;
+}
+
+.nav_item > a:hover {
+    color: yellow;
+}
+
+.logo {
+    float: left;
+}
+a > img {
+    height: 70px;
+    width: 200px;
+}

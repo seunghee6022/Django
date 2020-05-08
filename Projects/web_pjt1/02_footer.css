@@ -1,0 +1,16 @@
+/* 02_footer.css */
+/* 아래에 코드를 작성해 주세요. */
+footer {
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+
+    background-color: gray;
+    color: white;
+    height: 60px;
+    text-align: center;
+    line-height: 60px;
+}
