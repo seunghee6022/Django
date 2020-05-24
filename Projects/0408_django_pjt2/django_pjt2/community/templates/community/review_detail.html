@@ -1,0 +1,33 @@
+{% extends 'base.html'%}
+{% block content %}
+<h3 class="text-center">영화 리뷰</h3>
+<h2 class="text-center"> <<{{article.movie_title}}>></h1>
+
+    <div class="card w-100 mx-auto " style="background-color:gainsboro;">
+        <div class="card-body">
+          <h5 class="card-title">{{ article.title}}</h5>
+          <p class="card-text">{{ article.content}}</p>
+        </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">평점 : {{article.rank}}</li>
+          <li class="list-group-item">작성시간 : {{article.created_at}}</li>
+          <li class="list-group-item">수정시간 : {{article.updated_at}}</li>
+        </ul>
+        <div class="card-body">
+            <button>
+                <a class="text-decoration-none" href="{% url 'articles:update' article.pk %}">EDIT</a>
+            </botton>
+            <form action="{% url 'articles:delete' article.pk %}" method="POST">
+                {% csrf_token %}
+                <button>DELETE</button>
+            </form>
+            <button>
+                <a class="text-decoration-none" href="{% url 'articles:index' %}">BACK</a>
+            </botton>
+        </div>
+      </div>
+
+
+
+ 
+{% endblock %}

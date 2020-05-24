@@ -1,0 +1,19 @@
+{% extends 'base.html'%}
+{% load bootstrap4 %}
+{% block content %}
+
+{% if request.resolver_match.url_name == 'create' %}
+    <h2 class="text-center">리뷰 작성</h2>
+   
+{% else %}
+    <h2 class="text-center">리뷰 수정</h2>
+{% endif %}
+
+<form action="" method='POST' class="d-flex flex-column">
+    {% csrf_token %}
+    {% bootstrap_form form %}
+    <input type="submit" value="submit">
+</form>
+<a href="{% url 'articles:index' %}">BACK</a>
+
+{% endblock %}

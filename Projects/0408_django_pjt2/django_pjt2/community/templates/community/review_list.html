@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2 class="text-center">Movie Review Board</h2>
+<hr/>
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">ID</th>
+        <th scope="col">RANK</th>
+        <th scope="col">MOVIE TITLE</th>
+        <th scope="col">TITLE</th>
+        <th scope="col">DETAIL</th>
+        
+        
+      </tr>
+    </thead>
+    <tbody>
+    {% for article in articles %}
+      <tr>
+        <th scope="row">{{ forloop.counter }}</th>
+        <td>{{ article.id}}</td>
+        <td>{{ article.rank}}</td>
+        <td>{{article.movie_title}}</td>
+        <td>{{ article.title}}</td>
+        <td><a href="{% url 'articles:detail' article.pk %}">DETAIL</a></td>
+      </tr>
+    {% endfor %}
+    </tbody>
+  </table>
+     
+{% endblock %}
