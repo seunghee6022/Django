@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+{% load bootstrap_pagination %}
+
+{% load bootstrap4 %}
+{% block content %}
+<h1 class="text-center">영화 {{movie.title}} 줄거리</h1>
+<a class="nav-link" href="{% url 'movies:movie_list' %}">Home</a>
+<div class="col mb-4">
+    <div class="card">
+        <img src="https://image.tmdb.org/t/p/original{{movie.poster_path}}" class="card-img-top"  style="height: 30rem;">
+      <div class="card-body">
+        <h5 class="card-title text-center">{{movie.original_title}}({{movie.title}})</h5>
+         <hr/>
+        <p class="card-text">
+          <ul class="d-flex flex-column">
+            <ul>평점 : {{movie.vote_average}}</ul>
+            <ul>평점 등록자: {{movie.vote_count}}</ul>
+            <ul>누적 관객 수 : {{movie.popularity}}</ul>
+            <ul>언어 : {{movie.original_language}}</ul>
+            <ul>{% if movie.adult %}
+                <p style="color:red">19세 이상 관람가</p>
+                {% else %}
+                <p>19세 이상 관람가 X</p>
+                {% endif %}
+            </ul>
+            <ul>장르 : 
+                {% for genre in movie.genres.all %}
+               {{genre.name}},
+               {% endfor %}</ul>
+            <ul class="mb-3">개봉일 : {{movie.release_date}}</ul>
+            <ul>
+                <img src="https://image.tmdb.org/t/p/original{{movie.backdrop_path}}"  style="height: 30rem;"> </ul>
+           <ul>줄거리 : {{movie.overview}}</ul>
+             </ul>
+        </p>
+      </div>
+    </div>
+  </div>
+
+{% endblock %}

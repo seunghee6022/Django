@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% block content %}
+
+<h1>{{request.user}}님에게 추천하는 영화</h1>
+
+<h3>{{request.user}}님이 좋아요 누른 영화들</h3>
+    {% for movie in movies %}
+        <p>{{movie.title}}의 장르</p>
+        <ul>
+        </ul>
+    {% endfor %}
+
+<h3>{{request.user}}님이 좋아할 만한 영화</h3>
+
+가장 선호하시는 장르:
+1위 :{{1st_genre}}
+2위 :{{2nd_genre}}
+3위 :{{3rd_genre}}
+
+        {% for rec in recommand %}
+        <li>{{rec.title}}</li>
+        {% endfor %}
+{% endblock %}
